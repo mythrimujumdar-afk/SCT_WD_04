@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ledger — To-Do</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1>Ledger</h1>
+    <p class="subtitle">Stay organized, one task at a time.</p>
+  </header>
+
+  <div class="stats">
+    <div class="stat total">
+      <div class="num" id="statTotal">0</div>
+      <div class="label">Total</div>
+    </div>
+    <div class="stat pending">
+      <div class="num" id="statPending">0</div>
+      <div class="label">Pending</div>
+    </div>
+    <div class="stat completed">
+      <div class="num" id="statCompleted">0</div>
+      <div class="label">Completed</div>
+    </div>
+  </div>
+
+  <nav class="lists" id="lists"></nav>
+
+  <div class="filters" id="filters">
+    <button type="button" class="filter-btn active" data-filter="all">All</button>
+    <button type="button" class="filter-btn" data-filter="pending">Pending</button>
+    <button type="button" class="filter-btn" data-filter="completed">Completed</button>
+  </div>
+
+  <form class="add-task" id="addForm">
+    <div class="add-row1">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7.5"/><path d="M10 6.5v7M6.5 10h7"/></svg>
+      <input type="text" id="taskInput" placeholder="Add a task…" autocomplete="off" required>
+    </div>
+    <div class="add-row2">
+      <div class="dt-field">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4.5" width="14" height="12" rx="2"/><path d="M3 8h14M7 3v3M13 3v3"/></svg>
+        <input type="date" id="dateInput">
+      </div>
+      <div class="dt-field time-field">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l2.5 2"/></svg>
+        <select id="hourInput" aria-label="Hour">
+          <option value="">--</option>
+        </select>
+        <span class="time-colon">:</span>
+        <select id="minuteInput" aria-label="Minute">
+          <option value="">--</option>
+        </select>
+        <button type="button" id="ampmToggle" class="ampm-toggle" data-period="AM">AM</button>
+      </div>
+      <button type="submit" class="submit">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3v10M3 8h10"/></svg>
+        Add
+      </button>
+    </div>
+  </form>
+
+  <div class="tasks" id="tasks"></div>
+  <div class="empty" id="emptyState" style="display:none;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 12l3 3 5-6"/><rect x="3" y="3" width="18" height="18" rx="5"/></svg>
+    <div class="empty-title">All clear</div>
+    <div>Nothing here yet — add your first task above.</div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
